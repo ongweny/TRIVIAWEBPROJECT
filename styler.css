@@ -1,0 +1,46 @@
+#navbar{
+    border: 3px solid black;
+    padding: 10px;
+    background-color: #ffdc74;
+}
+#menu{
+    text-align: right;
+    list-style: none;
+}
+#first{
+    margin-top: 60px;
+    margin-bottom: 50px;
+    margin-left: 150px;
+    margin-right: 150px;
+    border: 3px solid plum;
+    height: 150%;
+    background-image: url(https://t4.ftcdn.net/jpg/05/23/45/01/360_F_523450108_ZX2EEUey2LHGslvK232yh3b0g42VP4QX.jpg);
+    padding-top: 70px;
+    padding: 40px;
+    line-height: 50px;
+    text-align: center;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#heading{
+    text-align: center;
+    font-family: cursive;
+}
+#tape1{
+    float: left;
+    height: 100px;
+    margin-left: 90px;
+    margin-top: 15px;
+    rotate: 270deg;
+}
+#tape2{
+    float: right;
+    height: 100px;
+    margin-right: 90px;
+    margin-top: 10px;
+    rotate: 180deg;
+}
+#example{
+    list-style: none;
+    text-decoration: underline;
+}
