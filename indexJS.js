@@ -12,7 +12,7 @@ async function fetchQuestions() {
 }
 function displayQuestions(data) {
     const questionContainer = document.getElementById("question");
-    questionContainer.innerHTML = ""; // Clear previous content
+    questionContainer.innerHTML = "";
 
     data.results.forEach((question, index) => {
         const questionHTML = `
