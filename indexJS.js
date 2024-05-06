@@ -1,29 +1,44 @@
-async function fetchQuestions() {
-    try {
-        const response = await fetch("https://opentdb.com/api.php?amount=10&category=17&difficulty=easy");
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        console.log(data);
-    } catch (error) {
-        console.error("Error fetching questions:", error);
-    }
-}
-function displayQuestions(data) {
-    const questionContainer = document.getElementById("question");
-    questionContainer.innerHTML = "";
+function fetchData() {
+    const apiUrl = 'https://opentdb.com/api.php?amount=1&category=17&difficulty=easy';
 
-    data.results.forEach((question, index) => {
-        const questionHTML = `
-            <div class="question">
-                <p><strong>Question ${index + 1}:</strong> ${question.question}</p>
-                <p><strong>Correct Answer:</strong> ${question.correct_answer}</p>
-                <p><strong>Incorrect Answers:</strong> ${question.incorrect_answers.join(", ")}</p>
-            </div>
-        `;
-        questionContainer.innerHTML += questionHTML;
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        const dataContainer = document.getElementById('data-container');
+
+        data.results.forEach((question, index) => {
+            const questionElement = document.createElement('p');
+            questionElement.textContent = `${index + 1}. ${question.question}`;
+            dataContainer.appendChild(questionElement);
+
+            const answerInput = document.createElement('input');
+            answerInput.setAttribute('type', 'text');
+            answerInput.setAttribute('placeholder', 'Your answer...');
+            answerInput.setAttribute('id', 'answer-input');
+            answerInput.classList.add('answer-input');
+            dataContainer.appendChild(answerInput);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+
     });
+    document.getElementById('next').addEventListener('click', function() {
+    document.getElementById('data-container').innerHTML = '';
+
+    fetchData();});
 }
 
-fetchQuestions();
+window.onload = fetchData;
+
+function login(){
+    var username = prompt("Enter your username:");
+    var password = prompt("Enter your password:");
+    alert("Username: " + username + "\nPassword: " + password);
+}
+
+function submit(){
+    var submitQ = prompt("Add a Question:");
+    var Qanswer = prompt("Answer the Question:");
+    alert("Username: " + username + "\nPassword: " + password);
+}
